@@ -89,3 +89,30 @@ function markToday(){
 }
 
 markToday();
+
+/* --- 5. Появление секций при скролле ---------------------- */
+/* Если пользователь просил уменьшить анимации — не трогаем ничего. */
+var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var blocks = document.querySelectorAll('section .head, .disc, .filters, #schedule, .coaches, .plans, .contact-grid');
+
+if (!calm && 'IntersectionObserver' in window) {
+  blocks.forEach(function(el){ el.classList.add('reveal'); });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  blocks.forEach(function(el){ io.observe(el); });
+}
+
+/* --- 6. Тень у шапки при прокрутке ------------------------ */
+var pageHeader = document.querySelector('header');
+
+window.addEventListener('scroll', function(){
+  pageHeader.classList.toggle('scrolled', window.scrollY > 12);
+}, { passive: true });
