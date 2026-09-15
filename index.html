@@ -8,163 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --canvas:#EFE9DE;
-  --canvas-deep:#E3DACB;
-  --ink:#16171B;
-  --ink-soft:#4E5057;
-  --oxblood:#7C1F2B;
-  --brass:#B5852F;
-  --line:#CFC5B3;
-  --max:1180px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{
-  background:var(--canvas);
-  color:var(--ink);
-  font-family:'Archivo',system-ui,sans-serif;
-  font-size:17px;line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3{font-family:'Archivo Black',system-ui,sans-serif;font-weight:400;line-height:.98;letter-spacing:-.02em}
-a{color:inherit}
-img{max-width:100%;display:block}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-:focus-visible{outline:3px solid var(--oxblood);outline-offset:3px}
-
-/* ---------- HEADER ---------- */
-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(239,233,222,.92);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.nav{display:flex;align-items:center;gap:28px;height:68px}
-.logo{font-family:'Archivo Black',sans-serif;font-size:22px;letter-spacing:.04em;text-decoration:none}
-.logo span{color:var(--oxblood)}
-.nav-links{display:flex;gap:26px;margin-left:auto;list-style:none}
-.nav-links a{text-decoration:none;font-size:15px;font-weight:500;padding:4px 0;border-bottom:2px solid transparent}
-.nav-links a:hover{border-bottom-color:var(--oxblood)}
-.lang{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden}
-.lang button{
-  font:inherit;font-size:13px;font-weight:600;padding:5px 11px;
-  background:none;border:none;cursor:pointer;color:var(--ink);
-}
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
-.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
-.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
-
-/* ---------- HERO ---------- */
-.hero{
-  border-bottom:1px solid var(--line);
-  background:
-    linear-gradient(rgba(22,23,27,.62),rgba(22,23,27,.72)),
-    repeating-linear-gradient(45deg,#2a2c33 0 14px,#25272e 14px 28px);
-  color:var(--canvas);
-}
-.hero-in{padding:92px 0 76px;max-width:var(--max);margin:0 auto;padding-left:24px;padding-right:24px}
-.hero .kicker{
-  display:inline-block;font-size:14px;font-weight:600;letter-spacing:.14em;
-  border:1px solid var(--brass);color:var(--brass);padding:5px 12px;margin-bottom:26px;
-}
-.hero h1{font-size:clamp(46px,8.5vw,104px);text-transform:uppercase}
-.hero h1 em{font-style:normal;display:block;color:var(--brass)}
-.hero p{max-width:52ch;margin-top:24px;font-size:19px;color:#D8D2C6}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
-.btn{
-  display:inline-block;text-decoration:none;font-weight:600;font-size:16px;
-  padding:15px 28px;border:2px solid transparent;cursor:pointer;font-family:inherit;
-}
-.btn-main{background:var(--oxblood);color:#fff}
-.btn-main:hover{background:#94242f}
-.btn-ghost{border-color:var(--canvas);color:var(--canvas)}
-.btn-ghost:hover{background:var(--canvas);color:var(--ink)}
-.hero-facts{display:flex;flex-wrap:wrap;gap:40px;margin-top:56px;padding-top:28px;border-top:1px solid rgba(239,233,222,.25)}
-.fact b{display:block;font-family:'Archivo Black',sans-serif;font-size:34px;color:var(--brass)}
-.fact span{font-size:14px;color:#BFB9AD}
-
-/* ---------- SECTION ---------- */
-section{padding:84px 0;border-bottom:1px solid var(--line)}
-.head{max-width:60ch;margin-bottom:48px}
-.head h2{font-size:clamp(30px,4.5vw,46px)}
-.head p{margin-top:16px;color:var(--ink-soft)}
-
-/* ---------- DISCIPLINE ---------- */
-.disc{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.disc article{background:var(--canvas);padding:32px 26px}
-.disc h3{font-size:22px;margin-bottom:10px}
-.disc .age{font-size:13px;font-weight:600;color:var(--oxblood);margin-bottom:14px}
-.disc p{font-size:15.5px;color:var(--ink-soft)}
-
-/* ---------- ORAR ---------- */
-table{width:100%;border-collapse:collapse;font-size:15.5px}
-th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
-th{font-weight:600;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);border-bottom:2px solid var(--ink)}
-td:first-child{font-weight:600;white-space:nowrap}
-tbody tr:hover{background:var(--canvas-deep)}
-.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border:1px solid var(--oxblood);color:var(--oxblood)}
-
-/* ---------- ANTRENORI ---------- */
-.coaches{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:34px}
-.coach .ph{aspect-ratio:3/4;background:var(--canvas-deep) center/cover;border:1px solid var(--line);display:flex;align-items:flex-end;padding:18px}
-.coach .ph b{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--ink-soft)}
-.coach h3{font-size:20px;margin:18px 0 4px}
-.coach .role{font-size:14px;color:var(--oxblood);font-weight:600}
-.coach p{font-size:15px;color:var(--ink-soft);margin-top:10px}
-
-/* ---------- PRETURI ---------- */
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.plan{border:1px solid var(--line);padding:30px 26px;background:#fff}
-.plan.hot{border:2px solid var(--oxblood)}
-.plan h3{font-size:19px}
-.plan .price{font-family:'Archivo Black',sans-serif;font-size:42px;margin:14px 0 2px}
-.plan .per{font-size:14px;color:var(--ink-soft)}
-.plan ul{list-style:none;margin-top:20px;font-size:15px}
-.plan li{padding:7px 0 7px 20px;position:relative;color:var(--ink-soft)}
-.plan li::before{content:"";position:absolute;left:0;top:15px;width:9px;height:2px;background:var(--oxblood)}
-
-/* ---------- CONTACT ---------- */
-.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px}
-form{display:grid;gap:16px}
-label{font-size:14px;font-weight:600;display:block;margin-bottom:6px}
-input,select,textarea{
-  width:100%;font:inherit;font-size:16px;padding:13px 14px;
-  border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:0;
-}
-input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:none}
-.info dt{font-size:13px;font-weight:600;color:var(--ink-soft);margin-top:22px}
-.info dd{font-size:17px}
-.map{margin-top:28px;border:1px solid var(--line);aspect-ratio:16/10;background:var(--canvas-deep);display:grid;place-items:center;color:var(--ink-soft);font-size:14px}
-.note{font-size:13.5px;color:var(--ink-soft)}
-
-/* ---------- FOOTER ---------- */
-footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width:860px){
-  .burger{display:block}
-  .nav-links{
-    display:none;position:absolute;top:68px;left:0;right:0;
-    flex-direction:column;gap:0;background:var(--canvas);
-    border-bottom:1px solid var(--line);padding:8px 24px 18px;
-  }
-  .nav-links.open{display:flex}
-  .nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
-  .lang{order:3;margin-left:12px}
-  .contact-grid{grid-template-columns:1fr;gap:40px}
-  section{padding:60px 0}
-  .hero-in{padding:64px 24px 56px}
-  .hero-facts{gap:26px}
-  thead{display:none}
-  table,tbody,tr,td{display:block;width:100%}
-  tr{border:1px solid var(--line);margin-bottom:14px;padding:6px 0}
-  td{border:none;padding:7px 16px}
-  td:first-child{font-size:17px;font-family:'Archivo Black',sans-serif}
-  td[data-label]::before{content:attr(data-label);display:block;font-size:12px;font-weight:600;color:var(--ink-soft);letter-spacing:.05em}
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -251,11 +95,20 @@ footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wra
   <div class="wrap">
     <div class="head">
       <h2 data-ro="Orarul săptămânal" data-en="Weekly schedule">Orarul săptămânal</h2>
-      <p data-ro="Sala e deschisă de luni până sâmbătă. La prima ședință vino cu 15 minute mai devreme."
-         data-en="The gym is open Monday to Saturday. For your first session, arrive 15 minutes early.">
-        Sala e deschisă de luni până sâmbătă. La prima ședință vino cu 15 minute mai devreme.</p>
+      <p data-ro="Alege disciplina ca să vezi doar antrenamentele tale. Ziua de azi este marcată automat."
+         data-en="Pick a discipline to see only your sessions. Today's row is highlighted automatically.">
+        Alege disciplina ca să vezi doar antrenamentele tale. Ziua de azi este marcată automat.</p>
     </div>
-    <table>
+
+    <div class="filters" role="group" aria-label="Filtru discipline">
+      <button data-disc="all"   aria-pressed="true"  data-ro="Toate" data-en="All">Toate</button>
+      <button data-disc="box"   aria-pressed="false" data-ro="Box" data-en="Boxing">Box</button>
+      <button data-disc="lupte" aria-pressed="false" data-ro="Lupte" data-en="Wrestling">Lupte</button>
+      <button data-disc="mma"   aria-pressed="false">MMA</button>
+      <button data-disc="fizic" aria-pressed="false" data-ro="Pregătire fizică" data-en="Conditioning">Pregătire fizică</button>
+    </div>
+
+    <table id="schedule">
       <thead>
         <tr>
           <th data-ro="Ziua" data-en="Day">Ziua</th>
@@ -264,38 +117,43 @@ footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wra
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td data-ro="Luni" data-en="Monday">Luni</td>
-          <td data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
-          <td data-label="19:00"><span data-ro="Box · adulți" data-en="Boxing · adults">Box · adulți</span></td>
+        <tr data-day="1">
+          <td><span data-ro="Luni" data-en="Monday">Luni</span><span class="today-badge" data-ro="azi" data-en="today">azi</span></td>
+          <td class="slot" data-disc="lupte" data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
+          <td class="slot" data-disc="box" data-label="19:00"><span data-ro="Box · adulți" data-en="Boxing · adults">Box · adulți</span></td>
         </tr>
-        <tr>
-          <td data-ro="Marți" data-en="Tuesday">Marți</td>
-          <td data-label="17:00"><span data-ro="Box · copii" data-en="Boxing · kids">Box · copii</span></td>
-          <td data-label="19:00">MMA</td>
+        <tr data-day="2">
+          <td><span data-ro="Marți" data-en="Tuesday">Marți</span><span class="today-badge" data-ro="azi" data-en="today">azi</span></td>
+          <td class="slot" data-disc="box" data-label="17:00"><span data-ro="Box · copii" data-en="Boxing · kids">Box · copii</span></td>
+          <td class="slot" data-disc="mma" data-label="19:00">MMA</td>
         </tr>
-        <tr>
-          <td data-ro="Miercuri" data-en="Wednesday">Miercuri</td>
-          <td data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
-          <td data-label="19:00"><span data-ro="Pregătire fizică" data-en="Conditioning">Pregătire fizică</span></td>
+        <tr data-day="3">
+          <td><span data-ro="Miercuri" data-en="Wednesday">Miercuri</span><span class="today-badge" data-ro="azi" data-en="today">azi</span></td>
+          <td class="slot" data-disc="lupte" data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
+          <td class="slot" data-disc="fizic" data-label="19:00"><span data-ro="Pregătire fizică" data-en="Conditioning">Pregătire fizică</span></td>
         </tr>
-        <tr>
-          <td data-ro="Joi" data-en="Thursday">Joi</td>
-          <td data-label="17:00"><span data-ro="Box · copii" data-en="Boxing · kids">Box · copii</span></td>
-          <td data-label="19:00"><span data-ro="Box · adulți" data-en="Boxing · adults">Box · adulți</span></td>
+        <tr data-day="4">
+          <td><span data-ro="Joi" data-en="Thursday">Joi</span><span class="today-badge" data-ro="azi" data-en="today">azi</span></td>
+          <td class="slot" data-disc="box" data-label="17:00"><span data-ro="Box · copii" data-en="Boxing · kids">Box · copii</span></td>
+          <td class="slot" data-disc="box" data-label="19:00"><span data-ro="Box · adulți" data-en="Boxing · adults">Box · adulți</span></td>
         </tr>
-        <tr>
-          <td data-ro="Vineri" data-en="Friday">Vineri</td>
-          <td data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
-          <td data-label="19:00">MMA <span class="tag" data-ro="sparring" data-en="sparring">sparring</span></td>
+        <tr data-day="5">
+          <td><span data-ro="Vineri" data-en="Friday">Vineri</span><span class="today-badge" data-ro="azi" data-en="today">azi</span></td>
+          <td class="slot" data-disc="lupte" data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
+          <td class="slot" data-disc="mma" data-label="19:00">MMA <span class="tag" data-ro="sparring" data-en="sparring">sparring</span></td>
         </tr>
-        <tr>
-          <td data-ro="Sâmbătă" data-en="Saturday">Sâmbătă</td>
-          <td data-label="10:00"><span data-ro="Grupa deschisă · 10:00" data-en="Open mat · 10:00 am">Grupa deschisă · 10:00</span></td>
-          <td data-label="12:00"><span data-ro="Individual, la programare" data-en="One-to-one, by appointment">Individual, la programare</span></td>
+        <tr data-day="6">
+          <td><span data-ro="Sâmbătă" data-en="Saturday">Sâmbătă</span><span class="today-badge" data-ro="azi" data-en="today">azi</span></td>
+          <td class="slot" data-disc="fizic" data-label="10:00"><span data-ro="Grupa deschisă · 10:00" data-en="Open mat · 10:00 am">Grupa deschisă · 10:00</span></td>
+          <td class="slot" data-disc="mma" data-label="12:00"><span data-ro="Individual, la programare" data-en="One-to-one, by appointment">Individual, la programare</span></td>
         </tr>
       </tbody>
     </table>
+
+    <p class="empty-msg" id="empty-msg" hidden
+       data-ro="Pentru această disciplină nu sunt antrenamente în orarul curent."
+       data-en="There are no sessions for this discipline in the current schedule.">
+      Pentru această disciplină nu sunt antrenamente în orarul curent.</p>
   </div>
 </section>
 
@@ -344,7 +202,7 @@ footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wra
     <div class="plans">
       <div class="plan">
         <h3 data-ro="Ședință unică" data-en="Drop-in">Ședință unică</h3>
-        <div class="price">120 <span style="font-size:18px">MDL</span></div>
+        <div class="price">120 <span class="cur">MDL</span></div>
         <p class="per" data-ro="pentru o intrare" data-en="per session">pentru o intrare</p>
         <ul>
           <li data-ro="Orice grupă, fără rezervare" data-en="Any group, no booking">Orice grupă, fără rezervare</li>
@@ -353,7 +211,7 @@ footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wra
       </div>
       <div class="plan hot">
         <h3 data-ro="Lunar · 3 pe săptămână" data-en="Monthly · 3 a week">Lunar · 3 pe săptămână</h3>
-        <div class="price">750 <span style="font-size:18px">MDL</span></div>
+        <div class="price">750 <span class="cur">MDL</span></div>
         <p class="per" data-ro="pe lună" data-en="per month">pe lună</p>
         <ul>
           <li data-ro="12 antrenamente pe lună" data-en="12 sessions a month">12 antrenamente pe lună</li>
@@ -363,7 +221,7 @@ footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wra
       </div>
       <div class="plan">
         <h3 data-ro="Copii · lunar" data-en="Kids · monthly">Copii · lunar</h3>
-        <div class="price">600 <span style="font-size:18px">MDL</span></div>
+        <div class="price">600 <span class="cur">MDL</span></div>
         <p class="per" data-ro="pe lună, 6–14 ani" data-en="per month, ages 6–14">pe lună, 6–14 ani</p>
         <ul>
           <li data-ro="Grupe de maximum 12 copii" data-en="Groups of 12 children max">Grupe de maximum 12 copii</li>
@@ -433,41 +291,6 @@ footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wra
   <span data-ro="Site realizat de Ambrosii Pavel" data-en="Site built by Ambrosii Pavel">Site realizat de Ambrosii Pavel</span>
 </footer>
 
-<script>
-// ---- переключение языка ----
-var lang = 'ro';
-
-function setLang(next){
-  lang = next;
-  document.documentElement.lang = next;
-  document.querySelectorAll('[data-ro]').forEach(function(el){
-    var val = el.getAttribute('data-' + next);
-    if (val !== null) el.textContent = val;
-  });
-  document.querySelectorAll('.lang button').forEach(function(b){
-    b.setAttribute('aria-pressed', String(b.dataset.lang === next));
-  });
-}
-
-document.querySelectorAll('.lang button').forEach(function(b){
-  b.addEventListener('click', function(){ setLang(b.dataset.lang); });
-});
-
-// ---- мобильное меню ----
-var burger = document.getElementById('burger');
-var menu = document.getElementById('menu');
-
-burger.addEventListener('click', function(){
-  var open = menu.classList.toggle('open');
-  burger.setAttribute('aria-expanded', String(open));
-});
-
-menu.addEventListener('click', function(e){
-  if (e.target.tagName === 'A') {
-    menu.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-  }
-});
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
