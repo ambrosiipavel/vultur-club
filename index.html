@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vultur — Club de arte marțiale, Chișinău</title>
+<meta name="description" content="Club de arte marțiale în Chișinău: box, lupte, MMA. Grupe pentru copii și adulți. Prima ședință gratuită.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#EFE9DE;
+  --canvas-deep:#E3DACB;
+  --ink:#16171B;
+  --ink-soft:#4E5057;
+  --oxblood:#7C1F2B;
+  --brass:#B5852F;
+  --line:#CFC5B3;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  background:var(--canvas);
+  color:var(--ink);
+  font-family:'Archivo',system-ui,sans-serif;
+  font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Archivo Black',system-ui,sans-serif;font-weight:400;line-height:.98;letter-spacing:-.02em}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--oxblood);outline-offset:3px}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(239,233,222,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;gap:28px;height:68px}
+.logo{font-family:'Archivo Black',sans-serif;font-size:22px;letter-spacing:.04em;text-decoration:none}
+.logo span{color:var(--oxblood)}
+.nav-links{display:flex;gap:26px;margin-left:auto;list-style:none}
+.nav-links a{text-decoration:none;font-size:15px;font-weight:500;padding:4px 0;border-bottom:2px solid transparent}
+.nav-links a:hover{border-bottom-color:var(--oxblood)}
+.lang{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden}
+.lang button{
+  font:inherit;font-size:13px;font-weight:600;padding:5px 11px;
+  background:none;border:none;cursor:pointer;color:var(--ink);
+}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
+
+/* ---------- HERO ---------- */
+.hero{
+  border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(rgba(22,23,27,.62),rgba(22,23,27,.72)),
+    repeating-linear-gradient(45deg,#2a2c33 0 14px,#25272e 14px 28px);
+  color:var(--canvas);
+}
+.hero-in{padding:92px 0 76px;max-width:var(--max);margin:0 auto;padding-left:24px;padding-right:24px}
+.hero .kicker{
+  display:inline-block;font-size:14px;font-weight:600;letter-spacing:.14em;
+  border:1px solid var(--brass);color:var(--brass);padding:5px 12px;margin-bottom:26px;
+}
+.hero h1{font-size:clamp(46px,8.5vw,104px);text-transform:uppercase}
+.hero h1 em{font-style:normal;display:block;color:var(--brass)}
+.hero p{max-width:52ch;margin-top:24px;font-size:19px;color:#D8D2C6}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:600;font-size:16px;
+  padding:15px 28px;border:2px solid transparent;cursor:pointer;font-family:inherit;
+}
+.btn-main{background:var(--oxblood);color:#fff}
+.btn-main:hover{background:#94242f}
+.btn-ghost{border-color:var(--canvas);color:var(--canvas)}
+.btn-ghost:hover{background:var(--canvas);color:var(--ink)}
+.hero-facts{display:flex;flex-wrap:wrap;gap:40px;margin-top:56px;padding-top:28px;border-top:1px solid rgba(239,233,222,.25)}
+.fact b{display:block;font-family:'Archivo Black',sans-serif;font-size:34px;color:var(--brass)}
+.fact span{font-size:14px;color:#BFB9AD}
+
+/* ---------- SECTION ---------- */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.head{max-width:60ch;margin-bottom:48px}
+.head h2{font-size:clamp(30px,4.5vw,46px)}
+.head p{margin-top:16px;color:var(--ink-soft)}
+
+/* ---------- DISCIPLINE ---------- */
+.disc{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.disc article{background:var(--canvas);padding:32px 26px}
+.disc h3{font-size:22px;margin-bottom:10px}
+.disc .age{font-size:13px;font-weight:600;color:var(--oxblood);margin-bottom:14px}
+.disc p{font-size:15.5px;color:var(--ink-soft)}
+
+/* ---------- ORAR ---------- */
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-weight:600;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);border-bottom:2px solid var(--ink)}
+td:first-child{font-weight:600;white-space:nowrap}
+tbody tr:hover{background:var(--canvas-deep)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border:1px solid var(--oxblood);color:var(--oxblood)}
+
+/* ---------- ANTRENORI ---------- */
+.coaches{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:34px}
+.coach .ph{aspect-ratio:3/4;background:var(--canvas-deep) center/cover;border:1px solid var(--line);display:flex;align-items:flex-end;padding:18px}
+.coach .ph b{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--ink-soft)}
+.coach h3{font-size:20px;margin:18px 0 4px}
+.coach .role{font-size:14px;color:var(--oxblood);font-weight:600}
+.coach p{font-size:15px;color:var(--ink-soft);margin-top:10px}
+
+/* ---------- PRETURI ---------- */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.plan{border:1px solid var(--line);padding:30px 26px;background:#fff}
+.plan.hot{border:2px solid var(--oxblood)}
+.plan h3{font-size:19px}
+.plan .price{font-family:'Archivo Black',sans-serif;font-size:42px;margin:14px 0 2px}
+.plan .per{font-size:14px;color:var(--ink-soft)}
+.plan ul{list-style:none;margin-top:20px;font-size:15px}
+.plan li{padding:7px 0 7px 20px;position:relative;color:var(--ink-soft)}
+.plan li::before{content:"";position:absolute;left:0;top:15px;width:9px;height:2px;background:var(--oxblood)}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px}
+form{display:grid;gap:16px}
+label{font-size:14px;font-weight:600;display:block;margin-bottom:6px}
+input,select,textarea{
+  width:100%;font:inherit;font-size:16px;padding:13px 14px;
+  border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:0;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:none}
+.info dt{font-size:13px;font-weight:600;color:var(--ink-soft);margin-top:22px}
+.info dd{font-size:17px}
+.map{margin-top:28px;border:1px solid var(--line);aspect-ratio:16/10;background:var(--canvas-deep);display:grid;place-items:center;color:var(--ink-soft);font-size:14px}
+.note{font-size:13.5px;color:var(--ink-soft)}
+
+/* ---------- FOOTER ---------- */
+footer{padding:40px 0;font-size:14px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .burger{display:block}
+  .nav-links{
+    display:none;position:absolute;top:68px;left:0;right:0;
+    flex-direction:column;gap:0;background:var(--canvas);
+    border-bottom:1px solid var(--line);padding:8px 24px 18px;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .lang{order:3;margin-left:12px}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  section{padding:60px 0}
+  .hero-in{padding:64px 24px 56px}
+  .hero-facts{gap:26px}
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tr{border:1px solid var(--line);margin-bottom:14px;padding:6px 0}
+  td{border:none;padding:7px 16px}
+  td:first-child{font-size:17px;font-family:'Archivo Black',sans-serif}
+  td[data-label]::before{content:attr(data-label);display:block;font-size:12px;font-weight:600;color:var(--ink-soft);letter-spacing:.05em}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav">
+    <a href="#top" class="logo">VUL<span>TUR</span></a>
+    <button class="burger" id="burger" aria-label="Meniu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#discipline" data-ro="Discipline" data-en="Classes">Discipline</a></li>
+      <li><a href="#orar" data-ro="Orar" data-en="Schedule">Orar</a></li>
+      <li><a href="#antrenori" data-ro="Antrenori" data-en="Coaches">Antrenori</a></li>
+      <li><a href="#preturi" data-ro="Prețuri" data-en="Pricing">Prețuri</a></li>
+      <li><a href="#contact" data-ro="Contact" data-en="Contact">Contact</a></li>
+    </ul>
+    <div class="lang" role="group" aria-label="Limba">
+      <button data-lang="ro" aria-pressed="true">RO</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </nav>
+</header>
+
+<div class="hero" id="top">
+  <div class="hero-in">
+    <span class="kicker" data-ro="Chișinău · din 2012" data-en="Chișinău · since 2012">Chișinău · din 2012</span>
+    <h1><span data-ro="Club de" data-en="Martial arts">Club de</span><em data-ro="arte marțiale" data-en="club">arte marțiale</em></h1>
+    <p data-ro="Box, lupte libere și MMA pentru copii de la 6 ani și adulți de orice nivel. Antrenamente de trei ori pe săptămână, grupe mici, echipament pus la dispoziție pentru prima lună."
+       data-en="Boxing, freestyle wrestling and MMA for kids from age 6 and adults at any level. Three sessions a week, small groups, gear provided for your first month.">
+      Box, lupte libere și MMA pentru copii de la 6 ani și adulți de orice nivel. Antrenamente de trei ori pe săptămână, grupe mici, echipament pus la dispoziție pentru prima lună.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-main" data-ro="Programează o ședință gratuită" data-en="Book a free session">Programează o ședință gratuită</a>
+      <a href="#orar" class="btn btn-ghost" data-ro="Vezi orarul" data-en="See the schedule">Vezi orarul</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><b>180+</b><span data-ro="sportivi activi" data-en="active members">sportivi activi</span></div>
+      <div class="fact"><b>6</b><span data-ro="antrenori cu licență" data-en="licensed coaches">antrenori cu licență</span></div>
+      <div class="fact"><b>14</b><span data-ro="medalii naționale în 2025" data-en="national medals in 2025">medalii naționale în 2025</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="discipline">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-ro="Ce se antrenează în sală" data-en="What we train">Ce se antrenează în sală</h2>
+      <p data-ro="Patru grupe, fiecare cu propriul antrenor. Poți combina două discipline în același abonament."
+         data-en="Four groups, each with its own coach. You can combine two disciplines on one membership.">
+        Patru grupe, fiecare cu propriul antrenor. Poți combina două discipline în același abonament.</p>
+    </div>
+    <div class="disc">
+      <article>
+        <h3 data-ro="Box" data-en="Boxing">Box</h3>
+        <p class="age" data-ro="8–16 ani · adulți" data-en="Ages 8–16 · adults">8–16 ani · adulți</p>
+        <p data-ro="Tehnică de lovire, joc de picioare, lucru la sac și la mănuși. Sparring doar după trei luni de pregătire."
+           data-en="Striking technique, footwork, bag and pad work. Sparring only after three months of training.">
+          Tehnică de lovire, joc de picioare, lucru la sac și la mănuși. Sparring doar după trei luni de pregătire.</p>
+      </article>
+      <article>
+        <h3 data-ro="Lupte libere" data-en="Freestyle wrestling">Lupte libere</h3>
+        <p class="age" data-ro="6–18 ani" data-en="Ages 6–18">6–18 ani</p>
+        <p data-ro="Baza pentru orice sport de contact: echilibru, doborâri, control la sol. Grupa cu cele mai multe rezultate la campionate."
+           data-en="The base for any contact sport: balance, takedowns, ground control. Our most decorated group.">
+          Baza pentru orice sport de contact: echilibru, doborâri, control la sol. Grupa cu cele mai multe rezultate la campionate.</p>
+      </article>
+      <article>
+        <h3>MMA</h3>
+        <p class="age" data-ro="16+ · nivel intermediar" data-en="16+ · intermediate">16+ · nivel intermediar</p>
+        <p data-ro="Combinarea loviturilor cu lupta la sol. Se intră după minimum șase luni de box sau lupte."
+           data-en="Striking combined with grappling. Open after at least six months of boxing or wrestling.">
+          Combinarea loviturilor cu lupta la sol. Se intră după minimum șase luni de box sau lupte.</p>
+      </article>
+      <article>
+        <h3 data-ro="Pregătire fizică" data-en="Strength &amp; conditioning">Pregătire fizică</h3>
+        <p class="age" data-ro="Adulți · fără contact" data-en="Adults · no contact">Adulți · fără contact</p>
+        <p data-ro="Circuite, forță și rezistență fără sparring. Pentru cei care vor forma fizică, nu competiții."
+           data-en="Circuits, strength and endurance without sparring. For people who want the conditioning, not the competition.">
+          Circuite, forță și rezistență fără sparring. Pentru cei care vor forma fizică, nu competiții.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="orar">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-ro="Orarul săptămânal" data-en="Weekly schedule">Orarul săptămânal</h2>
+      <p data-ro="Sala e deschisă de luni până sâmbătă. La prima ședință vino cu 15 minute mai devreme."
+         data-en="The gym is open Monday to Saturday. For your first session, arrive 15 minutes early.">
+        Sala e deschisă de luni până sâmbătă. La prima ședință vino cu 15 minute mai devreme.</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th data-ro="Ziua" data-en="Day">Ziua</th>
+          <th data-ro="17:00 – 18:30" data-en="5:00 – 6:30 pm">17:00 – 18:30</th>
+          <th data-ro="19:00 – 20:30" data-en="7:00 – 8:30 pm">19:00 – 20:30</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-ro="Luni" data-en="Monday">Luni</td>
+          <td data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
+          <td data-label="19:00"><span data-ro="Box · adulți" data-en="Boxing · adults">Box · adulți</span></td>
+        </tr>
+        <tr>
+          <td data-ro="Marți" data-en="Tuesday">Marți</td>
+          <td data-label="17:00"><span data-ro="Box · copii" data-en="Boxing · kids">Box · copii</span></td>
+          <td data-label="19:00">MMA</td>
+        </tr>
+        <tr>
+          <td data-ro="Miercuri" data-en="Wednesday">Miercuri</td>
+          <td data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
+          <td data-label="19:00"><span data-ro="Pregătire fizică" data-en="Conditioning">Pregătire fizică</span></td>
+        </tr>
+        <tr>
+          <td data-ro="Joi" data-en="Thursday">Joi</td>
+          <td data-label="17:00"><span data-ro="Box · copii" data-en="Boxing · kids">Box · copii</span></td>
+          <td data-label="19:00"><span data-ro="Box · adulți" data-en="Boxing · adults">Box · adulți</span></td>
+        </tr>
+        <tr>
+          <td data-ro="Vineri" data-en="Friday">Vineri</td>
+          <td data-label="17:00"><span data-ro="Lupte · copii" data-en="Wrestling · kids">Lupte · copii</span></td>
+          <td data-label="19:00">MMA <span class="tag" data-ro="sparring" data-en="sparring">sparring</span></td>
+        </tr>
+        <tr>
+          <td data-ro="Sâmbătă" data-en="Saturday">Sâmbătă</td>
+          <td data-label="10:00"><span data-ro="Grupa deschisă · 10:00" data-en="Open mat · 10:00 am">Grupa deschisă · 10:00</span></td>
+          <td data-label="12:00"><span data-ro="Individual, la programare" data-en="One-to-one, by appointment">Individual, la programare</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="antrenori">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-ro="Cine te antrenează" data-en="Who trains you">Cine te antrenează</h2>
+    </div>
+    <div class="coaches">
+      <div class="coach">
+        <div class="ph"><b>foto 3:4</b></div>
+        <h3>Ion Rusu</h3>
+        <p class="role" data-ro="Antrenor principal · box" data-en="Head coach · boxing">Antrenor principal · box</p>
+        <p data-ro="Maestru al sportului, 14 ani în sală. A pregătit șapte campioni naționali la juniori."
+           data-en="Master of Sport, 14 years coaching. Has trained seven national junior champions.">
+          Maestru al sportului, 14 ani în sală. A pregătit șapte campioni naționali la juniori.</p>
+      </div>
+      <div class="coach">
+        <div class="ph"><b>foto 3:4</b></div>
+        <h3>Vitalie Cebotari</h3>
+        <p class="role" data-ro="Lupte libere · grupe copii" data-en="Wrestling · kids groups">Lupte libere · grupe copii</p>
+        <p data-ro="Lucrează cu cei mici de la 6 ani. Accent pe disciplină și pe tehnică corectă înainte de forță."
+           data-en="Works with children from age 6. Focus on discipline and clean technique before strength.">
+          Lucrează cu cei mici de la 6 ani. Accent pe disciplină și pe tehnică corectă înainte de forță.</p>
+      </div>
+      <div class="coach">
+        <div class="ph"><b>foto 3:4</b></div>
+        <h3>Ana Moraru</h3>
+        <p class="role" data-ro="Pregătire fizică · MMA" data-en="Conditioning · MMA">Pregătire fizică · MMA</p>
+        <p data-ro="Kinetoterapeut și antrenor. Construiește programe pentru cei care revin după accidentări."
+           data-en="Physiotherapist and coach. Builds programmes for people returning after injury.">
+          Kinetoterapeut și antrenor. Construiește programe pentru cei care revin după accidentări.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="preturi">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-ro="Abonamente" data-en="Memberships">Abonamente</h2>
+      <p data-ro="Prima ședință este gratuită, fără obligații. Echipamentul de bază se împrumută în prima lună."
+         data-en="Your first session is free, no strings attached. Basic gear is loaned for the first month.">
+        Prima ședință este gratuită, fără obligații. Echipamentul de bază se împrumută în prima lună.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3 data-ro="Ședință unică" data-en="Drop-in">Ședință unică</h3>
+        <div class="price">120 <span style="font-size:18px">MDL</span></div>
+        <p class="per" data-ro="pentru o intrare" data-en="per session">pentru o intrare</p>
+        <ul>
+          <li data-ro="Orice grupă, fără rezervare" data-en="Any group, no booking">Orice grupă, fără rezervare</li>
+          <li data-ro="Echipament din sală" data-en="Gym gear included">Echipament din sală</li>
+        </ul>
+      </div>
+      <div class="plan hot">
+        <h3 data-ro="Lunar · 3 pe săptămână" data-en="Monthly · 3 a week">Lunar · 3 pe săptămână</h3>
+        <div class="price">750 <span style="font-size:18px">MDL</span></div>
+        <p class="per" data-ro="pe lună" data-en="per month">pe lună</p>
+        <ul>
+          <li data-ro="12 antrenamente pe lună" data-en="12 sessions a month">12 antrenamente pe lună</li>
+          <li data-ro="Două discipline la alegere" data-en="Two disciplines of your choice">Două discipline la alegere</li>
+          <li data-ro="Acces la grupa deschisă sâmbăta" data-en="Saturday open mat included">Acces la grupa deschisă sâmbăta</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3 data-ro="Copii · lunar" data-en="Kids · monthly">Copii · lunar</h3>
+        <div class="price">600 <span style="font-size:18px">MDL</span></div>
+        <p class="per" data-ro="pe lună, 6–14 ani" data-en="per month, ages 6–14">pe lună, 6–14 ani</p>
+        <ul>
+          <li data-ro="Grupe de maximum 12 copii" data-en="Groups of 12 children max">Grupe de maximum 12 copii</li>
+          <li data-ro="Reducere 20% pentru al doilea copil" data-en="20% off for a second child">Reducere 20% pentru al doilea copil</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-ro="Programează prima ședință" data-en="Book your first session">Programează prima ședință</h2>
+      <p data-ro="Completează formularul și te sunăm în aceeași zi ca să stabilim ora."
+         data-en="Fill in the form and we call you the same day to agree on a time.">
+        Completează formularul și te sunăm în aceeași zi ca să stabilim ora.</p>
+    </div>
+    <div class="contact-grid">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div>
+          <label for="name" data-ro="Nume" data-en="Name">Nume</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div>
+          <label for="phone" data-ro="Telefon" data-en="Phone">Telefon</label>
+          <input id="phone" name="phone" type="tel" placeholder="+373 " required>
+        </div>
+        <div>
+          <label for="group" data-ro="Grupa care te interesează" data-en="Group you're interested in">Grupa care te interesează</label>
+          <select id="group" name="group">
+            <option data-ro="Box · copii" data-en="Boxing · kids">Box · copii</option>
+            <option data-ro="Box · adulți" data-en="Boxing · adults">Box · adulți</option>
+            <option data-ro="Lupte libere" data-en="Freestyle wrestling">Lupte libere</option>
+            <option>MMA</option>
+            <option data-ro="Pregătire fizică" data-en="Conditioning">Pregătire fizică</option>
+          </select>
+        </div>
+        <div>
+          <label for="msg" data-ro="Întrebare (opțional)" data-en="Question (optional)">Întrebare (opțional)</label>
+          <textarea id="msg" name="message" rows="3"></textarea>
+        </div>
+        <button class="btn btn-main" type="submit" data-ro="Trimite cererea" data-en="Send request">Trimite cererea</button>
+        <p class="note" data-ro="Te sunăm în aceeași zi lucrătoare. Datele nu sunt transmise nimănui."
+           data-en="We call you the same working day. Your details are not shared with anyone.">
+          Te sunăm în aceeași zi lucrătoare. Datele nu sunt transmise nimănui.</p>
+      </form>
+
+      <div>
+        <dl class="info">
+          <dt data-ro="Adresa" data-en="Address">Adresa</dt>
+          <dd>str. Alexandru cel Bun 41, Chișinău</dd>
+          <dt data-ro="Telefon" data-en="Phone">Telefon</dt>
+          <dd><a href="tel:+37360000000">+373 600 000 00</a></dd>
+          <dt data-ro="Program" data-en="Opening hours">Program</dt>
+          <dd data-ro="Luni – Vineri 16:00–21:00 · Sâmbătă 10:00–14:00"
+              data-en="Mon – Fri 4–9 pm · Sat 10 am – 2 pm">Luni – Vineri 16:00–21:00 · Sâmbătă 10:00–14:00</dd>
+        </dl>
+        <div class="map" data-ro="Aici se inserează harta Google" data-en="Google map embed goes here">Aici se inserează harta Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 Clubul sportiv Vultur, Chișinău</span>
+  <span data-ro="Site realizat de Ambrosii Pavel" data-en="Site built by Ambrosii Pavel">Site realizat de Ambrosii Pavel</span>
+</footer>
+
+<script>
+// ---- переключение языка ----
+var lang = 'ro';
+
+function setLang(next){
+  lang = next;
+  document.documentElement.lang = next;
+  document.querySelectorAll('[data-ro]').forEach(function(el){
+    var val = el.getAttribute('data-' + next);
+    if (val !== null) el.textContent = val;
+  });
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.setAttribute('aria-pressed', String(b.dataset.lang === next));
+  });
+}
+
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){ setLang(b.dataset.lang); });
+});
+
+// ---- мобильное меню ----
+var burger = document.getElementById('burger');
+var menu = document.getElementById('menu');
+
+burger.addEventListener('click', function(){
+  var open = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', String(open));
+});
+
+menu.addEventListener('click', function(e){
+  if (e.target.tagName === 'A') {
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+</body>
+</html>
